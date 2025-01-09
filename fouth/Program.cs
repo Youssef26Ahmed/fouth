@@ -1,323 +1,214 @@
-﻿using System;
-using System.Collections.Generic;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.ComponentModel;
+using System.Drawing;
 
-namespace fouth
+namespace AssignmentFive
 {
     internal class Program
     {
+        //Q1
+        enum WeekDays
+        {
+         Mon = 1,
+         tue = 2,
+         wed = 3,
+         thu = 4,
+         fri = 5,
+         sat = 6,
+         sun = 7,
+        }
+        struct Person
+        {
+            public string Name;
+            public int Age;
+        }
+        enum Seasons
+        {
+            Spring,
+            Summer,
+            Autumn,
+            Winter
+        }
+
+        [Flags]
+        enum Permissions
+        {
+            Read = 0,
+            Write = 1,
+            Delete = 2,
+            Execute = 3
+        }
+
+        struct Point
+        {
+            public int X;
+            public int Y;
+        }
+
+        enum Colors
+        {
+            Red,
+            Green,
+            Blue
+        }
+
+
         static void Main(string[] args)
         {
-
-            #region 1
-            /*
-            Console.Write("Enter the size of the identity matrix (n): ");
-            int n = int.Parse(Console.ReadLine());
-
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = 0; j < n; j++)
-                {
-                    if (i == j)
-                    {
-                        Console.Write("1 ");
-                    }
-                    else
-                    {
-                        Console.Write("0 ");
-                    }
-                }
-                Console.WriteLine();
-            }
-            */
+            #region Q1
+            //1.Create an enum called "WeekDays" with the days of the week(Monday to Sunday)
+            //as its members.Then, write a C# program that prints out all the days of the week using this enum.
+            //foreach (WeekDays day in Enum.GetValues(typeof(WeekDays)))
+            //{
+            //    Console.WriteLine(day);
+            //}
             #endregion
+            #region Q2
+            //2.Define a struct "Person" with properties "Name" and "Age". Create an array of
+            //three "Person" objects and populate it with data.Then,
+            // write a C# program to display the details of all the persons in the array.
+            //Person[] people = new Person[3];
 
-            #region 2 
+            //people[0].Name = "youssef";
+            //people[0].Age = 22;
 
-            /*
-            // Initialize the array
-            int[] numbers = { 1, 2, 3, 4, 5 };
+            //people[1].Name = "ahmed";
+            //people[1].Age = 23;
 
-            // Variable to store the sum
-            int sum = 0;
+            //people[2].Name = "rashed";
+            //people[2].Age = 24;
 
-            // Loop through the array and calculate the sum
-            foreach (int number in numbers)
-            {
-                sum += number;
-            }
-
-            // Output the result
-            Console.WriteLine("The sum of all elements in the array is: " + sum);
-
-            */
-
+            //foreach (Person person in people)
+            //{
+            //    Console.WriteLine($"Name: {person.Name}, Age: {person.Age}");
+            //}
             #endregion
+            #region Q3
+            //3.Create an enum called "Seas on" with the four seasons(Spring, Summer, Autumn, Winter) as
+            //its members.Write a C# program that takes a season name as input from the user and
+            //displays the corresponding month range for that season. Note range 
 
-            #region 3 
-            /*
-            int[] array1 = { 1, 3, 5, 7 };
-            int[] array2 = { 2, 4, 6, 8 };
-            int[] mergedArray = MergeSortedArrays(array1, array2);
+            //for seasons ( spring march to may , summer june to august , autumn September to November , winter December to February)
+            //Console.WriteLine("Enter a season (Spring, Summer, Autumn, Winter):");
+            //string inputSeason = Console.ReadLine().ToLower();
 
-            Console.WriteLine("Merged Array: " + string.Join(", ", mergedArray));
-            */
+            //if (!Enum.TryParse(inputSeason, true, out Seasons season))
+            //{
+            //    Console.WriteLine("Invalid season name.");
+            //    return;
+            //}
+
+            //switch (season)
+            //{
+            //    case Seasons.Spring:
+            //        Console.WriteLine("March to May");
+            //        break;
+            //    case Seasons.Summer:
+            //        Console.WriteLine("June to August");
+            //        break;
+            //    case Seasons.Autumn:
+            //        Console.WriteLine("September to November");
+            //        break;
+            //    case Seasons.Winter:
+            //        Console.WriteLine("December to February");
+            //        break;
+            //}
             #endregion
+            #region Q4
+            //4.Assign the following Permissions(Read, write, Delete, Execute) in a form of Enum.
+            //⮚ Create Variable from previous Enum to Add and Remove Permission from variable,
+            //   check if specific Permission is existed inside variable
 
-            #region 4
-            /*
-            int[] array = { 1, 2, 2, 3, 3, 3, 4, 4, 4, 4 };
-            Dictionary<int, int> frequencyDict = new Dictionary<int, int>();
+            //Permissions userPermissions = Permissions.Read | Permissions.Write | Permissions.Execute;
 
-            foreach (int element in array)
-            {
-                if (frequencyDict.ContainsKey(element))
-                {
-                    frequencyDict[element]++;
-                }
-                else
-                {
-                    frequencyDict[element] = 1;
-                }
-            }
+            //userPermissions |= Permissions.Delete;
+            //Console.WriteLine("Permissions after adding Delete: " + userPermissions);
 
-            Console.WriteLine("Element Frequencies:");
-            foreach (KeyValuePair<int, int> kvp in frequencyDict)
-            {
-                Console.WriteLine($"Element {kvp.Key}: {kvp.Value} times");
-            }
-            */
+            //userPermissions &= ~Permissions.Write;
+            //Console.WriteLine("Permissions after removing Write: " + userPermissions);
+
+            //if (userPermissions.HasFlag(Permissions.Read))
+            //{
+            //    Console.WriteLine("User has Read permission");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("User does not have Read permission");
+            //}
             #endregion
+            #region Q5
+            //5.Create an enum called "Colors" with the basic colors(Red, Green, Blue) as its members.
+            //Write a C# program that takes a color name as input from the user
+            //and displays a message indicating whether the input color is a primary color or not.
 
+            //Console.WriteLine("Enter a color (Red, Green, Blue):");
+            //string inputColor = Console.ReadLine().ToLower();
 
-            #region 5
+            //if (!Enum.TryParse(inputColor, true, out Colors color))
+            //{
+            //    Console.WriteLine("Invalid color name.");
+            //    return;
+            //}
 
-            /*
-            // Sample array
-            int[] numbers = { 3, 5, 7, 2, 8, -1, 4, 10, 12 };
-
-            // Initialize max and min with the first element of the array
-            int max = numbers[0];
-            int min = numbers[0];
-
-            // Loop through the array to find max and min
-            foreach (int number in numbers)
-            {
-                if (number > max)
-                {
-                    max = number;
-                }
-                if (number < min)
-                {
-                    min = number;
-                }
-            }
-
-            // Output the results
-            Console.WriteLine("Maximum element: " + max);
-            Console.WriteLine("Minimum element: " + min);
-            */
+            //if (color == Colors.Red || color == Colors.Green || color == Colors.Blue)
+            //{
+            //    Console.WriteLine($"{color} is a primary color.");
+            //}
+            //else
+            //{
+            //    Console.WriteLine($"{color} is not a primary color.");
+            //}
 
             #endregion
+            #region Q6
+            //6.Create a struct called "Point" to represent a 2D point with properties "X" and "Y". Write a 
+            //C# program that takes two points as input from the user and calculates the distance between them.
 
-            #region 6
+            //Console.WriteLine("Enter the coordinates of the first point:");
+            //int.TryParse(Console.ReadLine(), out int x1);
+            //int.TryParse(Console.ReadLine(), out int y1);
+            //Point point1 = new Point {X= x1,Y = y1};
 
-            /*
-            int[] array = { 10, 20, 4, 45, 99, 6 };
-            int first, second;
+            //Console.WriteLine("Enter the coordinates of the second point:");
+            //int.TryParse(Console.ReadLine(), out int x2);
+            //int.TryParse(Console.ReadLine(), out int y2);
+            //Point point2 = new Point { X = x2, Y = y2 };
 
-            if (array.Length < 2)
-            {
-                Console.WriteLine("Array should have at least two elements.");
-                return;
-            }
+            //double distance = Math.Sqrt(Math.Pow(point2.X - point1.X, 2) + Math.Pow(point2.Y - point1.Y, 2));
+            //Console.WriteLine($"The distance between the two points is: {distance:F2}");
 
-            first = second = int.MinValue;
-
-            foreach (int number in array)
-            {
-                if (number > first)
-                {
-                    second = first;
-                    first = number;
-                }
-                else if (number > second && number != first)
-                {
-                    second = number;
-                }
-            }
-
-            if (second == int.MinValue)
-            {
-                Console.WriteLine("There is no second largest element.");
-            }
-            else
-            {
-                Console.WriteLine("The second largest element is: " + second);
-            }
-            */
             #endregion
+            #region Q7
+            //7.Create a struct called "Person" with properties "Name" and "Age". Write a C# program that takes
+            //details of 3 persons as input from the user and displays the name and age of the oldest person.
+            
+            //Person[] people = new Person[3];
 
-            #region  7,8
-            /*
-            Console.WriteLine("Enter the elements of the array separated by spaces:");
-            string input = Console.ReadLine();
-            string[] elements = input.Split(' ');
-            int[] array = Array.ConvertAll(elements, int.Parse);
-            int maxDistance = FindMaxDistance(array);
-            Console.WriteLine("The longest distance between two equal cells is: " + maxDistance);
-            */
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    Console.WriteLine($"Enter details of person {i + 1}:");
+            //    Console.Write("Name: ");
+            //    people[i].Name = Console.ReadLine();
+            //    Console.Write("Age: ");
+            //    people[i].Age = int.Parse(Console.ReadLine());
+            //}
+
+            //Person oldestPerson = people[0];
+            //for (int i = 1; i < 3; i++)
+            //{
+            //    if (people[i].Age > oldestPerson.Age)
+            //    {
+            //        oldestPerson = people[i];
+            //    }
+            //}
+
+            //Console.WriteLine($"The oldest person is {oldestPerson.Name} with an age of {oldestPerson.Age}");
 
             #endregion
 
 
-            #region 9
 
-            /*
-            Console.WriteLine("Enter a sentence:");
-            string sentence = Console.ReadLine();
-
-            string reversedSentence = ReverseWords(sentence);
-
-            Console.WriteLine("Reversed sentence:");
-            Console.WriteLine(reversedSentence);
-            */
-
-
-            #endregion
-
-
-            #region 10
-
-            /*
-            // Define the size of the arrays
-            int rows = 3;
-            int cols = 3;
-
-            // Initialize the arrays
-            int[,] firstArray = new int[rows, cols];
-            int[,] secondArray = new int[rows, cols];
-
-            // Accept values from the user for the first array
-            Console.WriteLine("Enter values for the first array:");
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < cols; j++)
-                {
-                    Console.Write($"Element [{i},{j}]: ");
-                    firstArray[i, j] = int.Parse(Console.ReadLine());
-                }
-            }
-
-            // Copy elements from the first array to the second array
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < cols; j++)
-                {
-                    secondArray[i, j] = firstArray[i, j];
-                }
-            }
-
-            // Print the second array
-            Console.WriteLine("Elements of the second array:");
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < cols; j++)
-                {
-                    Console.Write(secondArray[i, j] + "\t");
-                }
-                Console.WriteLine();
-            }
-            */
-            #endregion
-
-            #region 11
-
-            // Define the array
-            int[] array = { 1, 2, 3, 4, 5 };
-
-            // Print the array in reverse order
-            Console.WriteLine("Array in reverse order:");
-            for (int i = array.Length - 1; i >= 0; i--)
-            {
-                Console.Write(array[i] + " ");
-            }
-
-
-            #endregion
-        }
-
-        /*
-        //this function is related to region 3
-        static int[] MergeSortedArrays(int[] arr1, int[] arr2)
-        {
-            int n = arr1.Length;
-            int[] mergedArray = new int[2 * n];
-            int i = 0, j = 0, k = 0;
-
-            while (i < n && j < n)
-            {
-                if (arr1[i] <= arr2[j])
-                {
-                    mergedArray[k++] = arr1[i++];
-                }
-                else
-                {
-                    mergedArray[k++] = arr2[j++];
-                }
-            }
-
-            while (i < n)
-            {
-                mergedArray[k++] = arr1[i++];
-            }
-
-            while (j < n)
-            {
-                mergedArray[k++] = arr2[j++];
-            }
-
-            return mergedArray;
 
         }
-        */
-
-
-        // the below fuction is related to region 7,8
-        /*
-        static int FindMaxDistance(int[] array)
-        {
-            Dictionary<int, int> firstIndexMap = new Dictionary<int, int>(); int maxDistance = 0;
-            for (int i = 0; i < array.Length; i++)
-            {
-                if (firstIndexMap.ContainsKey(array[i]))
-                {
-                    int distance = i - firstIndexMap[array[i]];
-                    if (distance > maxDistance)
-                    {
-                        maxDistance = distance - 1;
-                    }
-                }
-                else
-                {
-                    firstIndexMap[array[i]] = i -1;
-                }
-            }
-            return maxDistance;
-        }
-        */
-
-        /*
-        static string ReverseWords(string sentence)
-        {
-            // Split the sentence into words
-            string[] words = sentence.Split(' ');
-
-            // Reverse the array of words
-            Array.Reverse(words);
-
-            // Join the words back into a sentence
-            return string.Join(" ", words);
-        }
-        */
     }
 }
